@@ -6,7 +6,3 @@ locals {
   public_subnets_array = "${values(local.public_subnets)}"
   tags = "${merge(map("Name", var.name), var.tags)}"
 }
-
-output "private_subnets" {
-  value = "${values(local.private_subnets)}"
-}
