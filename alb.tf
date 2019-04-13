@@ -25,5 +25,16 @@ resource "aws_lb_listener" "main" {
   }
 }
 
+resource "aws_lb_listener" "main-tls" {
+  load_balancer_arn = "${aws_lb.main.id}"
+  port              = "443"
+  protocol          = "HTTPS"
+  certificate_arn   = "${module.acm.this_acm_certificate_arn}"
+
+  default_action {
+    target_group_arn = "${aws_lb_target_group.main.id}"
+    type             = "forward"
+  }
+}
 
 
