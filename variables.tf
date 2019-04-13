@@ -86,7 +86,12 @@ variable "atlantis_github_user_token_ssm_parameter_name" {
 }
 
 variable "route53_zone_name" {
-  
+  description = "The route53 host zone name to use"  
+}
+
+variable "webhook_ssm_parameter_name" {
+  description = "Name of SSM parameter to keep webhook secret"
+  default     = "/atlantis/webhook/secret"
 }
 
 

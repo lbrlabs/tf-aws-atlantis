@@ -23,6 +23,13 @@ locals {
       valueFrom = "${var.atlantis_github_user_token_ssm_parameter_name}"
     },
   ]
+
+  container_definition_secrets_2 = [
+    {
+      name      = "ATLANTIS_GITLAB_WEBHOOK_SECRET"
+      valueFrom = "${var.webhook_ssm_parameter_name}"
+    },
+  ]
 }
 
 
