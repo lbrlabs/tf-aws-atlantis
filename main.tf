@@ -12,12 +12,15 @@ locals {
       value = "${var.atlantis_github_user}"
     },
     {
-      name  = "ATLANTIS_GH_TOKEN"
-      value = "${var.atlantis_github_user_token}"
-    },
-    {
       name  = "ATLANTIS_REPO_WHITELIST"
       value = "${join(",", var.atlantis_repo_whitelist)}"
+    },
+  ]
+
+   container_definition_secrets_1 = [
+    {
+      name      = "ATLANTIS_GH_TOKEN"
+      valueFrom = "${var.atlantis_github_user_token_ssm_parameter_name}"
     },
   ]
 }
@@ -51,6 +54,7 @@ module "container_definition_atlantis" {
   ]
 
   environment = "${local.container_environment_variables}"
+  secrets     = [ "${local.container_definition_secrets_1}" ]
 
 }
 

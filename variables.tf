@@ -80,4 +80,14 @@ variable "alb_ingress_cidr_blocks" {
   default     = ["0.0.0.0/0"]
 }
 
+variable "atlantis_github_user_token_ssm_parameter_name" {
+  description = "Name of SSM parameter to keep atlantis_github_user_token"
+  default     = "/atlantis/github/user/token"
+}
+
+variable "route53_zone_name" {
+  
+}
+
+
 
