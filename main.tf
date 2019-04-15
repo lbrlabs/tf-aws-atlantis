@@ -61,7 +61,7 @@ module "container_definition_atlantis" {
   ]
 
   environment = "${local.container_environment_variables}"
-  secrets     = [ "${local.container_definition_secrets_1}" ]
+  secrets     = ["${concat(local.container_definition_secrets_1, local.container_definition_secrets_2)}" ]
 
 }
 
